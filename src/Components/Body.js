@@ -27,7 +27,7 @@ const Body = () => {
             <div className="search">Search</div>
             <div className="item-container">
                 {items.map((item) => (
-                  <Link to={"/items/1"}  key={item.id} ><ItemCard  item={item.title} /></Link>
+                  <Link to={"/items/"+item.id}  key={item.id} ><ItemCard  item={item} /></Link>
                 ))}     
             </div>
         </div>

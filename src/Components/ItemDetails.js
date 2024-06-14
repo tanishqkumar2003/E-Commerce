@@ -4,14 +4,14 @@ import { useParams } from "react-router-dom";
 const ItemDetail =()=>{
 
     const[itemInfo, setItemInfo] = useState({});
-    const{itemId} = useParams();
+    const{id} = useParams();
 
     useEffect(()=>{
         fetchDetail();
     },[])
 
     const fetchDetail = async ()=>{
-        const data = await fetch("https://fakestoreapi.com/products/5");
+        const data = await fetch("https://fakestoreapi.com/products/"+id);
         const json = await data.json();
         console.log(json);
         setItemInfo(json);
@@ -24,7 +24,7 @@ const ItemDetail =()=>{
                   <h2>{itemInfo.title}</h2>
             <h3> Rs.{itemInfo.price}</h3>
             <h5>Category : {itemInfo.category}</h5>
-            <h4>Rating : {itemInfo.rating.rate} Star</h4>
+            {/* <h4>Rating : {itemInfo.rating.rate} Star</h4> */}
             <p>{itemInfo.description}</p>
         </div>
     )
